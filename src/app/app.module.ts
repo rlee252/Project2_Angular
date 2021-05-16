@@ -13,7 +13,12 @@ import { SignupService } from './signup.service';
 import { PostGameReviewComponent } from './post-game-review/post-game-review.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ReviewItemComponent } from './components/review-item/review-item.component';
+import {ReviewService} from './services/review.service';
+import {RouterModule, Routes} from '@angular/router';
 
+const appRoutes: Routes = [
+{path: 'reviews', component: ReviewsComponent}
+];
 
 @NgModule({
   declarations: [
@@ -29,7 +34,8 @@ import { ReviewItemComponent } from './components/review-item/review-item.compon
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
   ],
   providers: [
     LoginService,

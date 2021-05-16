@@ -15,12 +15,13 @@ const httpOptions = {
 })
 export class ReviewService {
   // Should be reviews by current user
-  private apiUrl = `http://localhost:8080/revProject2_war/review/3`;
+  // private apiUrl = `http://localhost:8080/revProject2_war/review/3`;
+  // testing fake server instead:
+  private mockAPIUrl = 'http://localhost:5000/reviews';
 
   constructor(private http: HttpClient) { }
 
   getReviewsByCurrentUser(): Observable<Review[]> {
-    console.log(`apiUrl: ` + this.apiUrl);
-    return this.http.get<Review[]>(this.apiUrl, httpOptions);
+    return this.http.get<Review[]>(this.mockAPIUrl);
   }
 }

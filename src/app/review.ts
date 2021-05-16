@@ -4,5 +4,5 @@ export interface Review {
   description: string;
   hoursPlayed: number;
   completionStatus: number;
-  gameId: number;
+  gameName: string;
 }

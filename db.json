@@ -1,0 +1,20 @@
+{
+  "reviews": [
+    {
+      "reviewId": 1,
+      "rating": 10,
+      "description": "Expansive powers, amazing characters, fun movement, emotional story, and amazing visuals. Fantastic game.",
+      "hoursPlayed": 58.6,
+      "completionStatus": 3,
+      "gameName": "INFAMOUS"
+    },
+    {
+      "reviewId": 10,
+      "rating": 10,
+      "description": "Best game ever",
+      "hoursPlayed": 27,
+      "completionStatus": 1,
+      "gameName": "Zelda Breath of the Wild"
+    }
+  ]
+}
