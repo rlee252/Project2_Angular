@@ -12,7 +12,9 @@ export class LoginService {
 
   getUserLoginAndPassword(usernameInput: string, passwordInput: string): Observable<User> {
     console.log("inside userLoginAndPassword() " + usernameInput + passwordInput);
-    return this.httpClient.post<User>(`http://localhost:8080/revProject2/login`, { username: usernameInput, password: passwordInput }, { withCredentials: true });
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.post<User>(`http://localhost:8080/revProject2/login`,
+      { username: usernameInput, password: passwordInput }, { withCredentials: true });
 
   }
 
