@@ -15,10 +15,10 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ReviewItemComponent } from './components/review-item/review-item.component';
 import {ReviewService} from './services/review.service';
 import {RouterModule, Routes} from '@angular/router';
-
-const appRoutes: Routes = [
-{path: 'reviews', component: ReviewsComponent}
-];
+//
+// const appRoutes: Routes = [
+// {path: 'reviews', component: ReviewsComponent}
+// ];
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    // RouterModule.forRoot(appRoutes, {enableTracing: true}),
   ],
   providers: [
     LoginService,

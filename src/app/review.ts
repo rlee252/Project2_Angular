@@ -5,4 +5,5 @@ export interface Review {
   hoursPlayed: number;
   completionStatus: number;
   gameName: string;
+  imageUrl: string;
 }
