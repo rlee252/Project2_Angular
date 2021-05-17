@@ -1,3 +1,4 @@
+
 <section class="section">
   <div class="container">
     <div class="b-table">
@@ -5,6 +6,7 @@
         <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
           <thead>
           <tr>
+            <th></th>
             <th>Name</th>
             <th>Description</th>
             <th>Rating</th>
@@ -13,11 +15,23 @@
           </tr>
           </thead>
 
-  <app-review-item
-    *ngFor="let review of reviews"
-    [review]="review"
-    (onDeleteReview)="deleteReview(review)"
-  ></app-review-item>
+          <ng-container *ngFor="let review of reviews"; let i=" index;">
+            <tr>
+              <td data-label="imageUrl"><img [src]="review.imageUrl"></td>
+              <td data-label="gameName"> {{review.gameName}} </td>
+              <td data-label="description"> {{review.description}} </td>
+              <td data-label="rating"> {{review.rating}} </td>
+              <td data-label="hoursPlayed">{{review.hoursPlayed}}</td>
+              <td data-label="completionStatus">{{review.completionStatus}}</td>
+
+              <button class="button is-small"
+                      (click)="onDelete(review)"
+                      [ngStyle]="{color: 'orange'}"
+              >
+                Delete
+              </button>
+            </tr>
+          </ng-container>
         </table>
       </div>
     </div>
