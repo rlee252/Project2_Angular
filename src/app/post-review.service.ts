@@ -12,6 +12,9 @@ export class PostReviewService {
 
 
   postReview(postReviewDTO: PostReviewDTO) {
+    console.log("inside postReview() " + postReviewDTO);
     return this.httpClient.post<PostReviewDTO>(`http://localhost:8080/revProject2/review`, postReviewDTO, { withCredentials: true });
+
   }
+
 }

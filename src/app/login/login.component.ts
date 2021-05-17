@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       if(this.passwordInput != null){
         this.loginService.getUserLoginAndPassword(this.usernameInput, this.passwordInput).subscribe((response) => {
           //if it even gets here, it means the login is successful and we can navigate to a new page
-          window.location.href = 'http://www.youtube.com';
+          window.location.href = 'http://localhost:4200/postGameReview';
           //Replace this with angular's navigate by URL
         });
         displayInvalidLogin("Invalid Credentials");
