@@ -22,6 +22,11 @@ export class ReviewService {
   constructor(private http: HttpClient) { }
 
   getReviewsByCurrentUser(): Observable<Review[]> {
-    return this.http.get<Review[]>(this.mockAPIUrl);
+    return this.http.get<Review[]>(this.mockAPIUrl, httpOptions);
+  }
+
+  deleteReview(review: Review): Observable<Review> {
+    const url = `${this.mockAPIUrl}/${review.reviewId}`;
+    return this.http.delete<Review>(url, httpOptions);
   }
 }

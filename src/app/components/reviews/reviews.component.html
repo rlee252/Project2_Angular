@@ -1,6 +1,6 @@
-<p>reviews works!</p>
 
 <app-review-item
   *ngFor="let review of reviews"
   [review]="review"
+  (onDeleteReview)="deleteReview(review)"
 ></app-review-item>

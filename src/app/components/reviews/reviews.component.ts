@@ -16,4 +16,12 @@ export class ReviewsComponent implements OnInit {
     this.reviewService.getReviewsByCurrentUser().subscribe((reviews) => (this.reviews = reviews));
   }
 
+
+  deleteReview(review: Review) {
+    this.reviewService
+      .deleteReview(review)
+      .subscribe(
+        () => (this.reviews = this.reviews.filter((r) => r.reviewId !== review.reviewId))
+        );
+  }
 }

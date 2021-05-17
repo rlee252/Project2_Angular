@@ -9,10 +9,16 @@ import { Review} from '../../review';
 })
 export class ReviewItemComponent implements OnInit {
   @Input() review: Review;
+  @Output() onDeleteReview: EventEmitter<Review> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onDelete(review: Review) {
+    console.log("clicking onDelete");
+    this.onDeleteReview.emit(review);
   }
 
 }
