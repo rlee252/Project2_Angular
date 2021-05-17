@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { LoginService } from './login.service';
 import { SignupService } from './signup.service';
 import { PostGameReviewComponent } from './post-game-review/post-game-review.component';
+import { PostReviewService } from './post-review.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PostGameReviewComponent } from './post-game-review/post-game-review.com
   ],
   providers: [
     LoginService,
-    SignupService
+    SignupService,
+    PostReviewService,
   ],
   bootstrap: [AppComponent]
 })

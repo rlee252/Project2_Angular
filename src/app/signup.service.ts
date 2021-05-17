@@ -5,7 +5,7 @@ import { SignUpUser } from 'src/model/SignUpUser';
   providedIn: 'root'
 })
 export class SignupService {
-  private someProperty: string = 'A string';
+
 
   constructor(private httpClient: HttpClient) { }
 

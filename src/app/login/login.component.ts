@@ -15,8 +15,6 @@ export class LoginComponent implements OnInit {
 
 
 
-
-
   constructor(loginService: LoginService) {
     this.loginService = loginService;
   }
@@ -26,14 +24,42 @@ export class LoginComponent implements OnInit {
 
 
   submitButtonClick() {
-    console.log("clicked");
-    console.log(this.usernameInput);
-    console.log(this.passwordInput);
 
-    this.loginService.getUserLoginAndPassword(this.usernameInput, this.passwordInput).subscribe((response) => {
-      console.log("response: " + response);
-      console.log("httpresponse: " + HttpErrorResponse);
-    });
+    if(this.usernameInput != null){
+      if(this.passwordInput != null){
+        this.loginService.getUserLoginAndPassword(this.usernameInput, this.passwordInput).subscribe((response) => {
+          //if it even gets here, it means the login is successful and we can navigate to a new page
+          window.location.href = 'http://www.youtube.com';
+          //Replace this with angular's navigate by URL
+        });
+        displayInvalidLogin("Invalid Credentials");
+      } else {
+        displayInvalidLogin("Must Enter Password");
+      }
+    } else {
+      displayInvalidLogin("Must Enter Username");
+    }
+
+    
   }
 
+
+}
+
+function clearErrorMessage(){
+  let errorMessage = document.getElementById('errorMessage');
+  if(errorMessage != null){
+      errorMessage.remove();
+  }
+}
+
+function displayInvalidLogin(errorString) {
+  clearErrorMessage();
+  let bodyElement = document.getElementById('checkError');
+  let pElement = document.createElement('p');
+  pElement.setAttribute("id", "errorMessage");
+  pElement.style.color = 'red';
+  pElement.innerHTML = errorString;
+  bodyElement.appendChild(pElement);
+  console.log("invalid request");
 }
