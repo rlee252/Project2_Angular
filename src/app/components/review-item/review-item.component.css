@@ -1,7 +1,10 @@
-.review {
+
+tr {
   display: flex;
   flex-direction: row;
-  width: 50%;
-  margin: 3rem;
+  justify-content:space-around;
 }
 
+.td {
+  flex-shrink: 1;
+}

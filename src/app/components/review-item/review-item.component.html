@@ -1,17 +1,22 @@
-<div class="review">
 
-<div class="card">
-  <button
+<tr>
+  <td data-label="reviewId">{{review.reviewId}}</td>
+  <td data-label="gameName"> {{review.gameName}} </td>
+  <td data-label="description"> {{review.description}} </td>
+  <td data-label="rating"> {{review.rating}} </td>
+  <td data-label="hoursPlayed">{{review.hoursPlayed}}</td>
+  <td data-label="completionStatus">{{review.completionStatus}}</td>
+
+  <button class="button is-small"
     (click)="onDelete(review)"
     [ngStyle]="{color: 'orange'}"
   >
-   Delete
+    Delete
   </button>
-  <div class="card-image"></div>
-  <div class="card-content"><h3>Game: {{review.gameName}}</h3>
-  <h4>Rating: {{review.rating}}</h4>
-  <h6>Description: {{review.description}}</h6>
-  </div>
-</div>
+</tr>
 
-</div>
+
+
+
+
+
