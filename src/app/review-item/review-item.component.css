@@ -1,0 +1,11 @@
+
+tr {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+  }
+  
+  .td {
+    flex-grow: 1;
+  }
+  
