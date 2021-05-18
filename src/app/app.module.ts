@@ -17,6 +17,8 @@ import { SignupService } from './signup.service';
 import { PostReviewService } from './post-review.service';
 import { ReviewService } from './review.service';
 import { HomeComponent } from './home/home.component';
+import { SearchGameComponent } from './search-game/search-game.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -32,7 +34,9 @@ import { HomeComponent } from './home/home.component';
     PostGameReviewComponent,
     ReviewsComponent,
     ReviewItemComponent,
-    HomeComponent
+    HomeComponent,
+    SearchGameComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

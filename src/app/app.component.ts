@@ -19,6 +19,11 @@ export class AppComponent {
     this.loginService = loginService;
   }
 
+  ngOnInit(): void {
+    this.router.navigateByUrl(`/home`);
+  }
+
+
   ngDoCheck(): void {
     this.isUserLoggedIn = this.loginService.getUserStatus();
     console.log("inside ngOnChanges() " + this.isUserLoggedIn)
