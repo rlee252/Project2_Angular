@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CurrentUser } from 'src/model/CurrentUser';
 import { LoginService } from '../login.service';
  
 
@@ -9,20 +10,13 @@ import { LoginService } from '../login.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  CurrentUser currentUser;
+  currentUser: CurrentUser;
 
+  constructor(private loginService: LoginService){}
 
-  constructor(loginService: LoginService){
-    this.loginService = loginService;
-  }
-
-  ngDoCheck(): void {
-    this.isUserLoggedIn = this.loginService.getUserStatus();
-    console.log("inside ngOnChanges() " + this.isUserLoggedIn)
-  }
 
   ngOnInit(): void {
-      
+    this.loginService.confirmLogin().subscribe((currentUser) => (this.currentUser = this.currentUser));
   }
 
 }

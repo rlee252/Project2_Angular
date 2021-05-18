@@ -3,4 +3,5 @@ export interface CurrentUser {
     firstName: string;
     lastName: string;
     userType: string;
+    email: string;
 }
