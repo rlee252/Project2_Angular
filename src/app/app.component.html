@@ -1,7 +1,7 @@
 <nav class="navbar nav-menu">
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a routerLink='home' class="navbar-item">
         Home
       </a>
 
@@ -35,13 +35,13 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a routerLink='signup' class="button is-primary">
+          <a routerLink='signup' class="button" id="signup">
             <strong>Sign up</strong>
           </a>
-          <a routerLink='login' class="button is-light">
-            Log in
+          <a *ngIf="!isUserLoggedIn" routerLink='login' class="button is-light">
+            Login
           </a>
-
+          <button *ngIf="isUserLoggedIn" (click)="logoutUser()" class="button is-light">Logout</button>
         </div>
       </div>
     </div>
@@ -50,7 +50,8 @@
 <a routerLink='postGameReview' class="button is-light">
   Post Review
 </a>
+<a routerLink='reviews' class="button is-light">
+  My Reviews
+</a>
 <router-outlet></router-outlet>
-
-<img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2ido.jpg" alt="Girl in a jacket" width="500"
-  height="600">
+<!-- <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2ido.jpg" alt="Girl in a jacket" width="500" height="600">  -->

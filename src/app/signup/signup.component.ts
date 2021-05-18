@@ -30,59 +30,59 @@ export class SignupComponent implements OnInit {
     console.log("signupButtonClick");
     console.log(this.usernameInput);
 
-    
 
-    if(this.passwordInput == this.confirmPasswordInput){
-      if(this.usernameInput != null){
-          if(this.firstnameInput != null){
-              if(this.lastnameInput != null){
-                  if(this.emailInput != null){
-                      if(this.passwordInput != null){
-                          //Must pass all these checks before information is submitted
-                          displayInvalidSignUp("Thank you, please wait");
-                          
-                          this.signup = {
-                            username: this.usernameInput,
-                            password: this.passwordInput,
-                            firstName: this.firstnameInput,
-                            lastName: this.lastnameInput,
-                            email: this.emailInput
-                          }
-                          
-                          this.signupService.signupUser(this.signup).subscribe((response) => {
-                            console.log("response " + response);
-                            //In here is where the angular navigate should go
-                          });
-                          
-                      } else {
-                          displayInvalidSignUp("Must enter a password");
-                      }
-                  } else {
-                      displayInvalidSignUp("Must enter an email address");
-                  }
+
+    if (this.passwordInput == this.confirmPasswordInput) {
+      if (this.usernameInput != null) {
+        if (this.firstnameInput != null) {
+          if (this.lastnameInput != null) {
+            if (this.emailInput != null) {
+              if (this.passwordInput != null) {
+                //Must pass all these checks before information is submitted
+                displayInvalidSignUp("Thank you, please wait");
+
+                this.signup = {
+                  username: this.usernameInput,
+                  password: this.passwordInput,
+                  firstName: this.firstnameInput,
+                  lastName: this.lastnameInput,
+                  email: this.emailInput
+                }
+
+                this.signupService.signupUser(this.signup).subscribe((response) => {
+                  console.log("response " + response);
+                  //In here is where the angular navigate should go
+                });
+
               } else {
-                  displayInvalidSignUp("Must input a last name")
+                displayInvalidSignUp("Must enter a password");
               }
+            } else {
+              displayInvalidSignUp("Must enter an email address");
+            }
           } else {
-              displayInvalidSignUp("Must input a first name")
+            displayInvalidSignUp("Must input a last name")
           }
+        } else {
+          displayInvalidSignUp("Must input a first name")
+        }
       } else {
-          displayInvalidSignUp("Must input a username");
+        displayInvalidSignUp("Must input a username");
       }
-  } else {
+    } else {
       displayInvalidSignUp("Passwords must match");
-  }
+    }
 
-    
-    
-    function clearErrorMessage(){
+
+
+    function clearErrorMessage() {
       let errorMessage = document.getElementById('errorMessage');
-      if(errorMessage != null){
-          errorMessage.remove();
+      if (errorMessage != null) {
+        errorMessage.remove();
       }
-  }
-    
-    function displayInvalidSignUp(errorString){
+    }
+
+    function displayInvalidSignUp(errorString) {
       clearErrorMessage();
       let bodyElement = document.getElementById('checkError');
       let pElement = document.createElement('p');

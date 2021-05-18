@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { LoginService } from '../login.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,9 +13,7 @@ export class LoginComponent implements OnInit {
   passwordInput: string;
   loginService: LoginService;
 
-
-
-  constructor(loginService: LoginService) {
+  constructor(loginService: LoginService, private router: Router) {
     this.loginService = loginService;
   }
 
@@ -24,13 +22,16 @@ export class LoginComponent implements OnInit {
 
 
   submitButtonClick() {
-
-    if(this.usernameInput != null){
-      if(this.passwordInput != null){
+    console.log("before: " + this.loginService.getUserStatus());
+    if (this.usernameInput != null) {
+      if (this.passwordInput != null) {
         this.loginService.getUserLoginAndPassword(this.usernameInput, this.passwordInput).subscribe((response) => {
+          this.loginService.setUserStatus();
+          console.log("after: " + this.loginService.getUserStatus());
           //if it even gets here, it means the login is successful and we can navigate to a new page
-          window.location.href = 'http://localhost:4200/postGameReview';
+          this.router.navigateByUrl(`/home`);
           //Replace this with angular's navigate by URL
+
         });
         displayInvalidLogin("Invalid Credentials");
       } else {
@@ -40,16 +41,21 @@ export class LoginComponent implements OnInit {
       displayInvalidLogin("Must Enter Username");
     }
 
-    
+    this.loginService.confirmLogin().subscribe((response) => {
+      console.log("confirmed login " + response.username);
+    })
+
+
   }
+
 
 
 }
 
-function clearErrorMessage(){
+function clearErrorMessage() {
   let errorMessage = document.getElementById('errorMessage');
-  if(errorMessage != null){
-      errorMessage.remove();
+  if (errorMessage != null) {
+    errorMessage.remove();
   }
 }
 
@@ -63,3 +69,5 @@ function displayInvalidLogin(errorString) {
   bodyElement.appendChild(pElement);
   console.log("invalid request");
 }
+
+
