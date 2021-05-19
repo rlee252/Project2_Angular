@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import {Review} from '../model/review';
+import { CurrentUser } from 'src/model/CurrentUser';
 
 const httpOptions = {
   cors: 'no-cors',
@@ -16,6 +17,7 @@ const httpOptions = {
 export class ReviewService {
   
   private backEndUrlAll = `http://localhost:8080/revProject2/review/all`;
+  private backEndUrlReviewsByUser = `http://localhost:8080/revProject2/user`
   private backEndUrlUser = `http://localhost:8080/revProject2/user/` + `Username`;
 
   private externalGameCoverProperties = `https://api.igdb.com/v4/covers`;
@@ -36,5 +38,10 @@ export class ReviewService {
   deleteReview(review: Review): Observable<Review> {
     const url = `${this.backEndUrlAll}/${review.reviewId}`;
     return this.http.delete<Review>(url, httpOptions);
+  }
+
+  getReviewsByUsername(review: Review, currentUser: CurrentUser): Observable<Review[]> {
+    const url = `${this.backEndUrlReviewsByUser}/${currentUser.username}`;
+    return this.http.get<Review[]>(url, httpOptions);
   }
 }

@@ -11,17 +11,15 @@ import { LoginService } from '../login.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-<<<<<<< HEAD
+
   currentUser: CurrentUser;
 
   constructor(private loginService: LoginService){}
 
-=======
 
-
->>>>>>> master
 
   ngOnInit(): void {
+    console.log('currentUser: ', this.currentUser);
     this.loginService.confirmLogin().subscribe((currentUser) => (this.currentUser = this.currentUser));
   }
 

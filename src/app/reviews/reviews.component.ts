@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrentUser } from 'src/model/CurrentUser';
 import { Review} from '../../model/review'
 import { ReviewService } from '../review.service';
 
@@ -31,5 +32,13 @@ export class ReviewsComponent implements OnInit {
       .subscribe(
         () => (this.reviews = this.reviews.filter((r) => r.reviewId !== review.reviewId))
         );
+  }
+
+  getReviewByUsername(review: Review, currentUser: CurrentUser) {
+    this.reviewService
+      .getReviewsByUsername(review, currentUser)
+      .subscribe(
+        (reviews) => (this.reviews = reviews)
+      )
   }
 }

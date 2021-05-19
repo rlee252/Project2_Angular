@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/model/User';
 import { HttpClient } from '@angular/common/http';
+import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class LoginService {
   }
 
   confirmLogin(): Observable<User> {
+  
+    console.log(`inside confirmLogin()` );
+    // TODO: get currentUser.username
+    // localStorage.setItem('username', );
     return this.httpClient.get<User>(`http://localhost:8080/revProject2/user/currentUser`, {
       withCredentials: true,
     });
@@ -35,3 +40,7 @@ export class LoginService {
   }
 
 }
+function username(arg0: string, username: any) {
+  throw new Error('Function not implemented.');
+}
+
