@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CurrentUser } from 'src/model/CurrentUser';
 import { LoginService } from '../login.service';
+
  
 
 
@@ -10,10 +11,15 @@ import { LoginService } from '../login.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+<<<<<<< HEAD
   currentUser: CurrentUser;
 
   constructor(private loginService: LoginService){}
 
+=======
+
+
+>>>>>>> master
 
   ngOnInit(): void {
     this.loginService.confirmLogin().subscribe((currentUser) => (this.currentUser = this.currentUser));
