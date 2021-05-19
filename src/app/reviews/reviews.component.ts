@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Review} from '../../model/review'
+import { Review } from '../../model/review'
 import { ReviewService } from '../review.service';
 
-console.log("yowasup");
+
 
 @Component({
   selector: 'app-reviews',
@@ -15,13 +15,13 @@ export class ReviewsComponent implements OnInit {
   reviewThumbnails = [];
 
   constructor(private reviewService: ReviewService) { }
-  
+
 
 
   ngOnInit(): void {
-    
-    this.reviewService.getAllReviews().subscribe((reviews) => (this.reviews = reviews));
-    
+    this.reviewService.getAllReviews().subscribe((reviews) => (console.log(reviews),
+      this.reviews = reviews
+    ));
   }
 
 
@@ -30,6 +30,6 @@ export class ReviewsComponent implements OnInit {
       .deleteReview(review)
       .subscribe(
         () => (this.reviews = this.reviews.filter((r) => r.reviewId !== review.reviewId))
-        );
+      );
   }
 }

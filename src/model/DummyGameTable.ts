@@ -1,4 +1,5 @@
 export interface DummyGameTable {
     gameId: number;
-    rating: number,
+    gameName: string;
+    thumbNail: string;
 }

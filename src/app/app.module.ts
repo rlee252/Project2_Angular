@@ -19,12 +19,8 @@ import { ReviewService } from './review.service';
 import { HomeComponent } from './home/home.component';
 import { SearchGameComponent } from './search-game/search-game.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-
-
-
-
-
-
+import { ReadReviewsComponent } from './read-reviews/read-reviews.component';
+import { GameService } from './game.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +32,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ReviewItemComponent,
     HomeComponent,
     SearchGameComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ReadReviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +45,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     LoginService,
     SignupService,
     PostReviewService,
-    ReviewService
+    ReviewService,
+    GameService
   ],
   bootstrap: [AppComponent]
 })

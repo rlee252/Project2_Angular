@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SignupService } from '../signup.service';
 import { SignUpUser } from 'src/model/SignUpUser';
 import { HttpErrorResponse } from '@angular/common/http';
+
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -19,7 +21,7 @@ export class SignupComponent implements OnInit {
   signupService: SignupService;
 
 
-  constructor(signupService: SignupService) {
+  constructor(signupService: SignupService, private router: Router) {
     this.signupService = signupService;
   }
 
@@ -52,6 +54,7 @@ export class SignupComponent implements OnInit {
                 this.signupService.signupUser(this.signup).subscribe((response) => {
                   console.log("response " + response);
                   //In here is where the angular navigate should go
+                  this.router.navigateByUrl(`/login`)
                 });
 
               } else {

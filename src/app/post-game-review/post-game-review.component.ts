@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostReviewDTO } from 'src/model/postReviewDTO';
+import { GameService } from '../game.service';
 import { PostReviewService } from '../post-review.service';
 
 @Component({
@@ -18,11 +19,21 @@ export class PostGameReviewComponent implements OnInit {
 
   postReviewDTO: PostReviewDTO;
 
-  postReviewService: PostReviewService;
+  gameName: string = "";
 
-  constructor(postReviewService: PostReviewService) {this.postReviewService = postReviewService}
+  postReviewService: PostReviewService;
+  gameService: GameService;
+
+  constructor(postReviewService: PostReviewService, gameService: GameService) {
+    this.postReviewService = postReviewService
+    this.gameService = gameService;
+  }
 
   ngOnInit(): void {
+  }
+
+  ngDoCheck(): void {
+    this.gameName = this.gameService.getGameName();
   }
 
   submitReview() {
@@ -42,6 +53,6 @@ export class PostGameReviewComponent implements OnInit {
       //Replace this with angular's navigate by URL
     });
   }
-  
+
 }
 

@@ -6,6 +6,7 @@ import { PostGameReviewComponent } from './post-game-review/post-game-review.com
 import { ReviewsComponent } from './reviews/reviews.component';
 import { HomeComponent } from './home/home.component';
 import { SearchGameComponent } from './search-game/search-game.component';
+import { ReadReviewsComponent } from './read-reviews/read-reviews.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'postGameReview', component: PostGameReviewComponent },
   { path: 'reviews', component: ReviewsComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'searchGame', component: SearchGameComponent }
+  { path: 'searchGame', component: SearchGameComponent },
+  { path: 'readGameReview', component: ReadReviewsComponent }
 ];
 
 @NgModule({
