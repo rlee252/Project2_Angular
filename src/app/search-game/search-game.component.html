@@ -2,7 +2,7 @@
     <label class="label">Search Game</label>
     <div class="control ">
         <input [(ngModel)]="searchGameInput" class="input" type="text" placeholder="Search Game" required>
-        <button class="button is-primary" (click)="searchGame()">Submit</button>
+        <button class="button" id="searchbutton" (click)="searchGame()">Submit</button>
     </div>
 
 
@@ -13,8 +13,8 @@
                     <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
                         <thead>
                             <tr>
-                                <th>GameId</th>
-                                <th>Game Name</th>
+                                <th><font color="#fff">Game ID</font></th>
+                                <th><font color="#fff">Game Name</font></th>
                                 <th>
                                     <!--game url -->
                                 </th>
@@ -27,7 +27,7 @@
                             <tr>
                                 <td data-label="rating"> {{game.gameID}} </td>
                                 <td data-label="rating"> {{game.gameName}} </td>
-                                <td data-label="imageUrl" id="imageUrl"> <img [src]="game.thumbnailUrl" width="90"
+                                <td data-label="imageUrl" id="imageUrl"> <img [src]="game.thumbnailURL" width="90"
                                         height="90"> </td>
                                 <td><button class="button is-small" (click)="readReview(i)">
                                         Read Review

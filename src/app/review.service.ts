@@ -17,10 +17,11 @@ const httpOptions = {
 })
 export class ReviewService {
 
-  private backEndUrlAll = `http://localhost:8080/revProject2/review/all`;
-  private backEndUrlRecent = `http://localhost:8080/revProject2/review/recent`;
-  private backEndUrlUser = `http://localhost:8080/revProject2/user/`;
-  private backEndUrlGameSearch = `http://localhost:8080/revProject2/game/search/`;
+  private backEndUrlAll = `http://ec2-52-14-217-72.us-east-2.compute.amazonaws.com:8080/revProject2/review/all`;
+  private backEndUrlRecent = `http://ec2-52-14-217-72.us-east-2.compute.amazonaws.com:8080/revProject2/review/recent`;
+  private backEndUrlUser = `http://ec2-52-14-217-72.us-east-2.compute.amazonaws.com:8080/revProject2/user/`;
+  private backEndUrlGameSearch = `http://ec2-52-14-217-72.us-east-2.compute.amazonaws.com:8080/revProject2/game/search/`;
+  private backEndUrlRevByGame = `http://ec2-52-14-217-72.us-east-2.compute.amazonaws.com:8080/revProject2/review/game/`;
 
   constructor(private http: HttpClient) { }
 
@@ -30,6 +31,10 @@ export class ReviewService {
 
   getReviewsByUser(username: string): Observable<Review[]> {
     return this.http.get<Review[]>(this.backEndUrlUser + username, httpOptions);
+  }
+
+  getReviewsByGameID(gameID: number): Observable<Review[]> {
+    return this.http.get<Review[]>(this.backEndUrlRevByGame + gameID, httpOptions);
   }
 
   getRecentReviews(): Observable<Review[]> {

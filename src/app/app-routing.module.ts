@@ -7,6 +7,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { HomeComponent } from './home/home.component';
 import { SearchGameComponent } from './search-game/search-game.component';
 import { ReadReviewsComponent } from './read-reviews/read-reviews.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'postGameReview', component: PostGameReviewComponent },
   { path: 'reviews', component: ReviewsComponent },
+  { path: 'user-profile', component: UserProfileComponent},
   { path: 'home', component: HomeComponent },
   { path: 'searchGame', component: SearchGameComponent },
   { path: 'readGameReview', component: ReadReviewsComponent }

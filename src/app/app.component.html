@@ -1,5 +1,5 @@
 <nav class="navbar nav-menu">
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarBasic" class="navbar-menu">
     <div class="navbar-start">
       <a routerLink='home' class="navbar-item">
         Home
@@ -8,8 +8,8 @@
       <a routerLink="searchGame" class="navbar-item">
         Search Game
       </a>
-      <a *ngIf="isUserLoggedIn" routerLink='reviews' class="navbar-item">
-        My Reviews
+      <a *ngIf="isUserLoggedIn" routerLink='user-profile' class="navbar-item">
+        User Reviews
       </a>
       <a *ngIf="" routerLink='postGameReview' class="navbar-item">
         Post Review
@@ -23,18 +23,14 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
+          <a href="https://github.com/michaelbmcgroary/Lemira_Revature_Project_2" class="navbar-item">
+              Back End Github
           </a>
-          <a class="navbar-item">
-            Jobs
+          <a href="https://github.com/rlee252/Project2_Angular" class="navbar-item">
+              Front End Github
           </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
+          <a *ngIf="isUserModerator" routerLink='reviews' class="navbar-item">
+            View All Reviews
           </a>
         </div>
       </div>
@@ -43,13 +39,13 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a *ngIf="isUserLoggedIn" routerLink='signup' class="button" id="signup">
+          <a *ngIf="!isUserLoggedIn" routerLink='signup' class="button" id="signup">
             <strong>Sign up</strong>
           </a>
-          <a *ngIf="!isUserLoggedIn" routerLink='login' class="button is-light">
-            Login
+          <a *ngIf="!isUserLoggedIn" routerLink='login' class="button is-light" id="login">
+            <strong>Login</strong>
           </a>
-          <button *ngIf="isUserLoggedIn" (click)="logoutUser()" class="button is-light">Logout</button>
+          <button *ngIf="isUserLoggedIn" (click)="logoutUser()" class="button is-light" id="logout"><strong>Logout</strong></button>
         </div>
       </div>
     </div>

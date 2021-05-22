@@ -11,6 +11,6 @@ export class SignupService {
 
   signupUser(signUpUser: SignUpUser) {
     console.log("signupUser()");
-    return this.httpClient.post<SignUpUser>(`http://localhost:8080/revProject2/newUser`, signUpUser, { withCredentials: true });
+    return this.httpClient.post<SignUpUser>(`http://ec2-52-14-217-72.us-east-2.compute.amazonaws.com:8080/revProject2/newUser`, signUpUser, { withCredentials: true });
   }
 }

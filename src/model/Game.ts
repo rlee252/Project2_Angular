@@ -1,8 +1,8 @@
 export interface Game {
     gameName: string;
-    bigCoverUrl: string;
+    coverURL: string;
     coverWidth: number;
     coverHeight: number;
-    thumbnailUrl: string;
+    thumbnailURL: string;
     gameID: number;
 }

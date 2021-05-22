@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PostReviewDTO } from 'src/model/postReviewDTO';
+import { Router } from '@angular/router';
+import { PostReviewDTO } from '../../model/PostReviewDTO';
 import { GameService } from '../game.service';
 import { PostReviewService } from '../post-review.service';
 
@@ -24,7 +25,7 @@ export class PostGameReviewComponent implements OnInit {
   postReviewService: PostReviewService;
   gameService: GameService;
 
-  constructor(postReviewService: PostReviewService, gameService: GameService) {
+  constructor(postReviewService: PostReviewService, gameService: GameService, private router: Router) {
     this.postReviewService = postReviewService
     this.gameService = gameService;
   }
@@ -43,14 +44,13 @@ export class PostGameReviewComponent implements OnInit {
       description: this.descriptionInput,
       hoursPlayed: Number(this.hoursPlayedInput),
       completionStatus: Number(this.completionInput),
-      gameID: this.dummyGameNameInput
+      gameID: this.gameService.getGameId()
     }
 
     console.log(this.postReviewDTO);
     this.postReviewService.postReview(this.postReviewDTO).subscribe((response) => {
       //if it even gets here, it means the post review was successful
-      window.location.href = 'http://www.youtube.com';
-      //Replace this with angular's navigate by URL
+      this.router.navigateByUrl(`/user-profile`);
     });
   }
 

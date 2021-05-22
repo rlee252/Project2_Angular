@@ -11,11 +11,8 @@ import { ReviewService } from '../review.service';
 })
 export class ReviewsComponent implements OnInit {
   reviews: Review[] = [];
-  reviewNames = [];
-  reviewThumbnails = [];
 
   constructor(private reviewService: ReviewService) { }
-
 
 
   ngOnInit(): void {

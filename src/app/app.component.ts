@@ -14,6 +14,7 @@ export class AppComponent {
   password: string;
   username: string;
   isUserLoggedIn: boolean = false;
+  isUserModerator: boolean = false;
 
   constructor(loginService: LoginService, private router: Router) {
     this.loginService = loginService;
@@ -27,10 +28,10 @@ export class AppComponent {
   ngDoCheck(): void {
     this.isUserLoggedIn = this.loginService.getUserStatus();
     //console.log("inside ngOnChanges() " + this.isUserLoggedIn)
+    this.isUserModerator = this.loginService.getUserRole();
   }
 
-
-
+  
 
   logoutUser() {
     this.loginService.logoutUser(this.user).subscribe((response) => {

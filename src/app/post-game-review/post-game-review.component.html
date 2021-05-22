@@ -5,7 +5,7 @@
     </div>
 
     <form action="">
-        <label for="Rating">Rating:</label>
+        <label class="label" for="Rating">Rating (out of 10):</label>
         <select [(ngModel)]="ratingInput" name="Rating" id="Rating">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -42,7 +42,7 @@
         <select [(ngModel)]="completionInput" name="Completion" id="Completion">
             <option value="1">Played</option>
             <option value="2">Finished</option>
-            <option value="3">Completed</option>
+            <option value="3">Completed 100%</option>
             <option value="4">Watched Playthrough</option>
 
         </select>

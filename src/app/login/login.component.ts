@@ -28,12 +28,13 @@ export class LoginComponent implements OnInit {
         this.loginService.getUserLoginAndPassword(this.usernameInput, this.passwordInput).subscribe((response) => {
           this.loginService.setUserStatus();
           console.log("after: " + this.loginService.getUserStatus());
-          //if it even gets here, it means the login is successful and we can navigate to a new page
+          //if it gets here, it means the login is successful and we can navigate to a new page
+          sessionStorage.setItem('username', this.usernameInput);
           this.router.navigateByUrl(`/home`);
-          //Replace this with angular's navigate by URL
-
         });
-        displayInvalidLogin("Invalid Credentials");
+        setTimeout(function () {
+          displayInvalidLogin("Invalid Credentials");
+        }, 1000);
       } else {
         displayInvalidLogin("Must Enter Password");
       }
